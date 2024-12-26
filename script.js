@@ -1,11 +1,11 @@
 const boton = document.getElementById("botonJS");
 
 function sayHello() {
-  console.log('😎🏍️');
+  console.log('hola desde acá');
 }
 
 boton.addEventListener('click', () => {
-  alert('Holas ✌🏼');
+  alert('nada');
   sayHello();
   document.body.style.backgroundColor = 'teal';
   document.body.style.color = 'black';
