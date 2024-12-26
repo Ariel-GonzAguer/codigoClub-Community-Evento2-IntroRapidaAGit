@@ -5,8 +5,7 @@ function sayHello() {
 }
 
 boton.addEventListener('click', () => {
-  alert('nada');
-  sayHello();
+  alert('nada ☕');
   document.body.style.backgroundColor = 'teal';
   document.body.style.color = 'black';
 });
