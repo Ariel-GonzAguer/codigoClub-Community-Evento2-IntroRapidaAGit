@@ -8,10 +8,9 @@ Repaso de cronograma de evento:
 Taller: Introducción rápida a Git
 ¿Qué es Git y para qué se usa?
    Es un sistema de control de versiones distribuido, utilizado para gestionar y seguir los cambios en el código fuente de un proyecto a lo largo del tiempo. Su principal propósito es permitir que varios desarrolladores trabajen de manera colaborativa en un mismo proyecto, manteniendo un historial de modificaciones, facilitando la gestión de versiones y reduciendo la posibilidad de errores en el código.
-    -> Sirve para:
+    ->Pero también en casos de desarrollo individual como:
      -Rastrear cambios en el código: Permite registrar modificaciones en un proyecto y volver a versiones anteriores si es necesario.
-     -Colaboración: Facilita el trabajo en equipo al permitir que varias personas trabajen en un mismo proyecto sin conflictos.
-     -Ramas y experimentación: Puedes crear ramas para probar nuevas funcionalidades sin afectar la versión principal del proyecto.
+     -Ramas y experimentación: crear ramas para probar nuevas funcionalidades sin afectar la versión principal del proyecto.
 
 Áreas de trabajo / flujo de trabajo en Git:
     -Directorio de trabajo: donde se realizara todo el trabajo: crear, editar, eliminar y organizar archivos.
@@ -31,7 +30,7 @@ Taller: Introducción rápida a Git
 
 Configuración básica inicial
 3.1 Nombre de persona usuaria y correo electrónico: Esta información se usará en cada cambio que guardemos en el repositorio. Esta información es particularmente útil cuando se trabaja en equipo o se colabora en algún proyecto.
-    git config --global user.name "Tu Nombre"    → las comillas si hay que ponerlas
+    git config --global user.name "nombre"    → las comillas si hay que ponerlas
     git config --global user.email "tuemail@ejemplo.com"
 
     -> Si el nombre se escribe mal, o se decide cambiarlo después, si se puede 😁 Solo se debe volver a ejecutar el comando con los nuevos datos.
@@ -54,7 +53,7 @@ git add: Añadir archivos al área de preparación (staging área):
       git add .
 
 git commit: Una confirmación(commit) es el último paso de nuestro flujo de trabajo de Git. Un commit almacena de forma *permanente* los cambios realizados en el área de preparación dentro del repositorio.
-    Siempre debemos añadir un mensaje claro. 
+    -> Siempre debemos añadir un mensaje claro. 
       git commit -m "crear archivo HTML"
 
 Convenciones estándar para mensajes de commit:
@@ -66,7 +65,7 @@ git status: se utiliza para conocer el estado actual del repositorio, incluidos 
 git status -s : Muestra en una sola línea el estado del repositorio, como los archivos que se han modificado pero no están al área de preparación ni repositorio. La M en rojo indica que se ha modificado pero que no está área de preparación. La M en verde indica que está en el área de preparación, lista para ser agregada al repositorio con git commit.
 
 git log: este comando muestra todos los registros de commits de un proyecto, el historial del proyecto. Se muestra lo siguiente para cada commit:
--Un código identificador de 40 caracteres, llamado SHA (Secure Hash Algorithm /Algoritmo hash seguro), único para cada commit, además de la rama de trabajo en la que estamos (tema para que investiguen en casa solas y solos).
+-Un código identificador de 40 caracteres, llamado SHA (Secure Hash Algorithm /Algoritmo hash seguro), único para cada commit, además de la rama de trabajo en la que estamos.
 -El autor del commit.
 -La fecha y hora del commit.
 -El mensaje del commit.
@@ -106,14 +105,14 @@ Una rama (branch) es una línea independiente de desarrollo. La rama principal s
 7.6.6 git branch -D nombre-rama: Eliminar definitivamente una rama.
 
 7.6.7 Buenas prácticas:
-- Usa nombres descriptivos y concisos: feature/login, fix/memory-leak
-- Utiliza prefijos para categorizar: feature/, bugfix/, fix/, etc.
-- Evita nombres ambiguos como nueva-rama o cambios
-- Usa guiones o barras bajas, no espacios: feature/add-login o feature/add_login
-- eliminar ramas que no se utilizan
+- Usar nombres descriptivos y concisos: feature/login, fix/memory-leak
+- Utilizar prefijos para categorizar: feature/, bugfix/, fix/, etc.
+- Evitar nombres ambiguos como nueva-rama o cambios
+- Usar guiones o barras bajas, no espacios: feature/add-login o feature/add_login
+- Eliminar ramas que no se utilizan
 
 7.6.8 Conflictos
-Ocurren cuando el sistema no puede determinar automáticamente cómo combinar los cambios realizados en diferentes ramas o commits. Esto suele suceder cuando dos o más personas trabajan simultáneamente en el mismo archivo y modifican la misma línea o sección del código. Cuando sucede, git nos muestra los conflictos a resolver para poder hacer el merge.
+Ocurren cuando el sistema no puede determinar automáticamente cómo combinar los cambios realizados en diferentes ramas o commits. Esto puede suceder cuando dos o más personas trabajan simultáneamente en el mismo archivo y modifican la misma línea o sección del código. Cuando sucede, git nos muestra los conflictos a resolver para poder hacer el merge.
 Después de resolver los conflictos, debemos ejecutar git add . y git commit -m . Esto completa el merge.
 
 ejemplo: crear rama llamada feature/agregar-JS. crear botón en el HTML y dar clase botonJS. crear arhivo script.js con:
@@ -157,6 +156,7 @@ boton.addEventListener('click', () => {
 
 
 ---
+volver a rama master y hacer merge.
 Resolver conflicto en el editor.
 Eliminar rama secundaria.
 ---
