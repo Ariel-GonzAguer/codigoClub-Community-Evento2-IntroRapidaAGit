@@ -1,0 +1,15 @@
+body {
+  padding: 1rem;
+
+  & h1, h2 {
+    text-align: center;
+  }
+
+  & h2 {
+    color: rebeccapurple;
+  }
+
+  & .listaUno {
+    list-style: none;
+  }
+}
