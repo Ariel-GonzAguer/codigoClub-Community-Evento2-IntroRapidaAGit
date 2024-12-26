@@ -1,0 +1,162 @@
+Repaso de cronograma de evento: 
+     🎉 Introducción y bienvenida
+     💎 Taller: Introducción rápida a Git
+     🔔 Preguntas e ideas
+     ✌🏼 Cierre del evento
+
+
+Taller: Introducción rápida a Git
+¿Qué es Git y para qué se usa?
+   Es un sistema de control de versiones distribuido, utilizado para gestionar y seguir los cambios en el código fuente de un proyecto a lo largo del tiempo. Su principal propósito es permitir que varios desarrolladores trabajen de manera colaborativa en un mismo proyecto, manteniendo un historial de modificaciones, facilitando la gestión de versiones y reduciendo la posibilidad de errores en el código.
+    -> Sirve para:
+     -Rastrear cambios en el código: Permite registrar modificaciones en un proyecto y volver a versiones anteriores si es necesario.
+     -Colaboración: Facilita el trabajo en equipo al permitir que varias personas trabajen en un mismo proyecto sin conflictos.
+     -Ramas y experimentación: Puedes crear ramas para probar nuevas funcionalidades sin afectar la versión principal del proyecto.
+
+Áreas de trabajo / flujo de trabajo en Git:
+    -Directorio de trabajo: donde se realizara todo el trabajo: crear, editar, eliminar y organizar archivos.
+    -Área de preparación: donde están todos los cambios que se quieren agregar a el directorio de trabajo.
+    -Repositorio: donde Git almacena permanentemente esos cambios como diferentes versiones del proyecto.
+
+¿Cómo instalar Git?
+    -> En Windows: Ir a https://git-scm.com/downloads descargar el instalador y seguir las instrucciones. Muy importante asegurarse de marcar la opción para añadir Git al PATH.
+     Una vez instalado ejecutar en la terminal (Bash -recomendada. se instala junto a Git- o PowerShell): git --versión
+    Esto: 1. Nos confirmará que tenemos Git instalado. 2. Qué versión del Git tenemos instalada. → pueden ver este video https://www.youtube.com/watch?v=WcYTcttEf50
+
+    -> En macOS: ejecutar en la terminal: brew install git  
+    Y después verificar la instalación: git --versión
+
+    -> En Linux(Ubuntu):  Ejecutar en la terminal: sudo apt update sudo apt install git
+    Y después verificar la instalación: git --versión
+
+Configuración básica inicial
+3.1 Nombre de persona usuaria y correo electrónico: Esta información se usará en cada cambio que guardemos en el repositorio. Esta información es particularmente útil cuando se trabaja en equipo o se colabora en algún proyecto.
+    git config --global user.name "Tu Nombre"    → las comillas si hay que ponerlas
+    git config --global user.email "tuemail@ejemplo.com"
+
+    -> Si el nombre se escribe mal, o se decide cambiarlo después, si se puede 😁 Solo se debe volver a ejecutar el comando con los nuevos datos.
+    git config --global user.name "Tu Nuevo Nombre"
+    git config --global user.email "tu-nuevo-email@ejemplo.com"
+
+
+Inicializar un repositorio local
+Para empezar a guardar los cambios en un historial, debemos crear un repositorio local. Para ello ejecutamos el siguiente comando en la terminal dentro del proyecto:
+    git init
+
+    -> Si ya teníamos algún archivo dentro del proyecto(carpeta del proyecto) veremos que este o estos se ponen en color verde, si estamos en VS Code. Esto nos indica que aún no llevamos un seguimiento de esos archivos.
+
+Comenzamos a trabajar con Git:
+git add: Añadir archivos al área de preparación (staging área):
+    -> Se puede añadir archivos individualmente:
+      git add esteArchivo.js
+
+    -> O se pueden añadir todos los archivos a la vez (esta creo que es la más usada):
+      git add .
+
+git commit: Una confirmación(commit) es el último paso de nuestro flujo de trabajo de Git. Un commit almacena de forma *permanente* los cambios realizados en el área de preparación dentro del repositorio.
+    Siempre debemos añadir un mensaje claro. 
+      git commit -m "crear archivo HTML"
+
+Convenciones estándar para mensajes de commit:
+--> ¡estos son convenciones no reglas!
+-Escritos en tiempo presente e imperativo. Por ejemplo: corregir bug en el formulario de login. / añadir botón de cierre de sesión.
+-Deben ser breves (50 caracteres o menos).
+
+git status: se utiliza para conocer el estado actual del repositorio, incluidos los archivos modificados y los archivos nuevos que Git no rastrea.
+git status -s : Muestra en una sola línea el estado del repositorio, como los archivos que se han modificado pero no están al área de preparación ni repositorio. La M en rojo indica que se ha modificado pero que no está área de preparación. La M en verde indica que está en el área de preparación, lista para ser agregada al repositorio con git commit.
+
+git log: este comando muestra todos los registros de commits de un proyecto, el historial del proyecto. Se muestra lo siguiente para cada commit:
+-Un código identificador de 40 caracteres, llamado SHA (Secure Hash Algorithm /Algoritmo hash seguro), único para cada commit, además de la rama de trabajo en la que estamos (tema para que investiguen en casa solas y solos).
+-El autor del commit.
+-La fecha y hora del commit.
+-El mensaje del commit.
+Este comando es particularmente útil cuando se necesita volver a consultar una versión anterior del proyecto. El código SHA único permite identificar un punto en el historial del proyecto al que se gustaría volver.
+git log --oneline: muestra el historial de commits del repositorio en una forma simplificada y concisa. Cada commit se presenta en una sola línea, mostrando el identificador SHA del commit y el mensaje del commit. Esto facilita la visualización rápida del historial de commits.
+
+VOLVER HACIA ATRÁS: ¿Qué hacer si queremos volver en el tiempo? Con Git podemos 😎
+git checkout <nombreDeArchivo>: con este comando se restaurará el archivo específico en su directorio de trabajo para que se vea exactamente como estaba cuando realizó la última confirmación. Este comando se usa ANTES de un comando add, cuando el archivo modificado NO esté en el área de preparación.
+Se puede usar el comando git diff para ver si la reversión fue exitosa.
+
+Recuperar un archivo eliminado que ya ha sido commitado 😱
+Si se sabe el commit en el que el archivo estaba presentes se puede usar el comando git checkout para obtener el archivo desde un commit anterior así:
+git checkout <commit_SHA> -- <ruta_del_archivo_y_nombre_del_archivo>       ---> muy importante los espacios a los lados de --
+ejemplo: git checkout 606fb13 -- otro.html
+
+7.4 Si no se sabe el commit SHA, usamos git log para conocerlo.
+
+7.5 Si hacemos un checkout de todo el proyecto (que no lo recomiendo): git checkout <commit SHA> Debemos hacer esto después para evitar problemas a futuro:
+git checkout master
+git reset --hard <commit SHA de la versión a la queremos volver>
+Esto restaura la rama principal (master) y mantiene la versión que queremos del proyecto
+De ser posible, solo restaurar los archivos individuales. El comando git reset, es algo un poco más avanzado, fuera del alcance de este taller básico introductorio, pero lo pueden investigar por su cuenta.
+
+7.6 git Branch:
+Una rama (branch) es una línea independiente de desarrollo. La rama principal suele llamarse "main" o "master". Se pueden crear ramas para:
+- Desarrollar nuevas funcionalidades.
+- Corregir errores.
+- Experimentar con código.
+- Trabajar en paralelo con otros desarrolladores.
+
+
+7.6.1 git branch: Ver las ramas existentes. La rama que tiene un asterisco * es en la que nos encontramos.
+7.6.2 git branch nombre-rama: Crear una nueva rama
+7.6.3 git checkout nombre-rama: Cambiar a otra rama
+7.6.4 git checkout -b nombre-rama: Crear y cambiar a una nueva rama
+7.6.5 git merge nombre-rama: Fusionar una rama con la actual. 
+7.6.6 git branch -D nombre-rama: Eliminar definitivamente una rama.
+
+7.6.7 Buenas prácticas:
+- Usa nombres descriptivos y concisos: feature/login, fix/memory-leak
+- Utiliza prefijos para categorizar: feature/, bugfix/, fix/, etc.
+- Evita nombres ambiguos como nueva-rama o cambios
+- Usa guiones o barras bajas, no espacios: feature/add-login o feature/add_login
+- eliminar ramas que no se utilizan
+
+7.6.8 Conflictos
+Ocurren cuando el sistema no puede determinar automáticamente cómo combinar los cambios realizados en diferentes ramas o commits. Esto suele suceder cuando dos o más personas trabajan simultáneamente en el mismo archivo y modifican la misma línea o sección del código. Cuando sucede, git nos muestra los conflictos a resolver para poder hacer el merge.
+Después de resolver los conflictos, debemos ejecutar git add . y git commit -m . Esto completa el merge.
+
+ejemplo: crear rama llamada feature/agregar-JS. crear botón en el HTML y dar clase botonJS. crear arhivo script.js con:
+
+function sayHello() {
+    console.log('Hola desde acá ⌨️');
+}
+
+boton.addEventListener('click', () => {
+    alert('nada');
+    document.body.style.backgroundColor = 'teal';
+    document.body.style.color = 'black';
+});
+
+
+---
+agregar script a HTML <script src="script.js" async></script>.
+agregar botón 
+<label for="botonJS"></label>
+<input type="button" name="botonJS" id="botonJS" value="botonJS" /> 
+
+hacer commit y merge con master
+---
+
+
+Para generar el conflicto cambiar:
+cambiarse a rama feature/agregar-JS y en el js:
+const boton = document.getElementById('botonJS');
+
+function sayHello() {
+    console.log('😎🏍️');
+}
+
+boton.addEventListener('click', () => {
+    alert('Holas ☕');
+    sayHello();
+    console.log('✌🏼🎉🏍️');
+    document.body.style.backgroundColor = 'teal';
+    document.body.style.color = 'black';
+});
+
+
+---
+Resolver conflicto en el editor.
+Eliminar rama secundaria.
+---

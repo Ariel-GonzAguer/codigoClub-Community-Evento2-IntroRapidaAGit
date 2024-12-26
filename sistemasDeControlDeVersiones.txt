@@ -1,0 +1,43 @@
+Existen otros sistemas de control de versiones además de Git, aunque Git es uno de los más populares hoy en día. Los sistemas de control de versiones se dividen generalmente en dos tipos:
+
+1.Sistemas de control de versiones centralizados (CVCS).
+2.Sistemas de control de versiones distribuidos (DVCS).
+
+Aquí te menciono algunos de los más conocidos en cada categoría:
+
+>Sistemas de control de versiones centralizados (CVCS):
+En estos sistemas, hay un único repositorio central que almacena todas las versiones del proyecto, y los desarrolladores trabajan conectados a ese repositorio para realizar los cambios.
+
+-Subversion (SVN):
+Descripción: Subversion es uno de los sistemas de control de versiones más populares antes de la expansión de Git. Es un sistema centralizado donde el repositorio está en un servidor central, y los desarrolladores descargan las versiones y suben los cambios a este repositorio.
+Características: Permite el control de versiones de archivos binarios y de texto, y ofrece control detallado de permisos y acceso al repositorio.
+Ventajas: Buen rendimiento para proyectos con grandes archivos binarios, más fácil de entender para los equipos pequeños y grandes, ya que todos los desarrolladores trabajan con el mismo repositorio central.
+
+-CVS (Concurrent Versions System):
+Descripción: Es uno de los primeros sistemas de control de versiones centralizados y fue ampliamente utilizado antes de la llegada de Subversion.
+Características: Permite a los desarrolladores trabajar en paralelo, pero no maneja bien las ramas y fusiones, lo que lo hace menos adecuado para proyectos complejos.
+Ventajas: Sencillo y ligero para proyectos pequeños.
+Sistemas de control de versiones distribuidos (DVCS):
+En estos sistemas, cada desarrollador tiene una copia completa del repositorio, lo que les permite trabajar de forma independiente y luego fusionar sus cambios.
+
+-Mercurial:
+Descripción: Mercurial es otro sistema de control de versiones distribuido, similar a Git. Se enfoca en ser simple, eficiente y fácil de usar.
+Características: Ofrece muchas de las mismas características de Git, como el control de versiones distribuido y la gestión de ramas. Mercurial es conocido por ser más fácil de aprender que Git.
+Ventajas: Tiene una interfaz más sencilla y es más fácil de configurar que Git. Es adecuado para equipos que no necesitan la flexibilidad avanzada de Git.
+
+-Bazaar:
+Descripción: Bazaar (a menudo abreviado como "bzr") es otro sistema de control de versiones distribuido. Fue desarrollado por Canonical (la empresa detrás de Ubuntu).
+Características: Aunque tiene una estructura distribuida como Git, Bazaar se utiliza principalmente en entornos de desarrollo más pequeños. También es conocido por ser más fácil de aprender para los principiantes.
+Ventajas: Su configuración y uso son simples, lo que lo hace atractivo para proyectos pequeños o individuales. También tiene buenas capacidades de integración con otros sistemas de control.
+
+-Fossil:
+Descripción: Fossil es un sistema de control de versiones distribuido y está diseñado para ser todo en uno, es decir, que incluye control de versiones, seguimiento de problemas y wiki, todo en una sola herramienta.
+Características: Es ligero, fácil de usar y con muchas funcionalidades adicionales integradas (como la gestión de tickets y documentación).
+Ventajas: Es adecuado para proyectos pequeños y medianos que requieren más que solo control de versiones.
+
+
+Diferencias clave entre sistemas centralizados y distribuidos:
+-Sistemas centralizados (como SVN, CVS) tienen un único repositorio central, lo que significa que todos los usuarios deben estar conectados a este servidor para obtener la versión más actualizada o para hacer cambios.
+-Sistemas distribuidos (como Git, Mercurial) permiten que cada usuario tenga una copia completa del repositorio en su máquina local. Los desarrolladores pueden trabajar de manera independiente sin necesidad de estar conectados a un servidor central, lo que ofrece mayor flexibilidad y rendimiento.
+
+

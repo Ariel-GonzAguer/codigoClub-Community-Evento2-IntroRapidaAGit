@@ -1,0 +1,4 @@
+Video tutorial de cómo instalar git en Windows: https://www.youtube.com/watch?v=WcYTcttEf50
+
+si bash no permite escribir, es decir aparece " : " en lugar de " $ ", presionar tecla q, y listo ✌🏼
+
