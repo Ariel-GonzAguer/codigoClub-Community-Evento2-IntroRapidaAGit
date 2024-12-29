@@ -19,14 +19,14 @@ Taller: Introducción rápida a Git
 
 ¿Cómo instalar Git?
     -> En Windows: Ir a https://git-scm.com/downloads descargar el instalador y seguir las instrucciones. Muy importante asegurarse de marcar la opción para añadir Git al PATH.
-     Una vez instalado ejecutar en la terminal (Bash -recomendada. se instala junto a Git- o PowerShell): git --versión
+     Una vez instalado ejecutar en la terminal (Bash -recomendada. se instala junto a Git- o PowerShell): git --version
     Esto: 1. Nos confirmará que tenemos Git instalado. 2. Qué versión del Git tenemos instalada. → pueden ver este video https://www.youtube.com/watch?v=WcYTcttEf50
 
     -> En macOS: ejecutar en la terminal: brew install git  
-    Y después verificar la instalación: git --versión
+    Y después verificar la instalación: git --version
 
     -> En Linux(Ubuntu):  Ejecutar en la terminal: sudo apt update sudo apt install git
-    Y después verificar la instalación: git --versión
+    Y después verificar la instalación: git --version
 
 Configuración básica inicial
 3.1 Nombre de persona usuaria y correo electrónico: Esta información se usará en cada cambio que guardemos en el repositorio. Esta información es particularmente útil cuando se trabaja en equipo o se colabora en algún proyecto.
